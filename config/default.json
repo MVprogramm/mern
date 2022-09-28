@@ -1,4 +1,5 @@
 {
   "port": 5000,
+  "jwtSecret": "MICHVAL",
   "mongoUri": "mongodb+srv://MICHVAL:MICHVAL16463@cluster0.pgfdokk.mongodb.net/?retryWrites=true&w=majority"
 }
