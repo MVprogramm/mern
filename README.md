@@ -28,7 +28,7 @@
 
 ## Authorisation. SignUp and SignIn.
 1. #### *ENDPOINTS*
-   1. make route in `routes` directory `auth.routes.js`
+   - make route in `routes` directory `auth.routes.js`
    2. make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
    3. handle `POST` requests on both endpoints
    4. make `User` model for DB in `models` directory `User.js`
