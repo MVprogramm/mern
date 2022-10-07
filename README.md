@@ -1,9 +1,9 @@
 # "NICE LINKS"
 ## THE FULLSTACK APPLICATION with **MERN** TECHNOLOGY
 ----
-1. ### Authorisation
-2. ### Come up with a nice name for your links
-3. ### Get important analytics on them
+### **Authorisation**
+### **Come up with a nice name for your links**
+### **Get important analytics on them**
 
 
 ## Project initialization
