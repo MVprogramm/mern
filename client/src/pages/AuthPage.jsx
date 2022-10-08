@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useHTTP } from "../hooks/http.hooks";
 import { useMessage } from "../hooks/message.hook";
+import { useDispatch } from "react-redux";
+import { setCurrentToken } from "./tokenSlice";
 
 const AuthPage = () => {
+  const dispatch = useDispatch()
   const { loading, request, error, clearError } = useHTTP()
   const message = useMessage()
   const [form, setForm] = useState({
@@ -30,6 +33,7 @@ const AuthPage = () => {
     try {
       const data = await request('/api/auth/login', 'POST', {...form})
       message(data.message)
+      dispatch(setCurrentToken(data.token))
     } catch(err) {}
   }
 

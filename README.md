@@ -28,34 +28,36 @@
 
 ## Authorisation. SignUp and SignIn.
 1. #### *ENDPOINTS*
-   1. make route in `routes` directory `auth.routes.js`
-   2. make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
-   3. handle `POST` requests on both endpoints
-   4. make `User` model for DB in `models` directory `User.js`
-   5. create query logic in endpoints using `mongoose` methods
-   6. use `bcryptjs` to secure user passwords 
-   7. use `express-validator` to validate user data
-   8. use `jsonwebtoken` for user authorisation
-   9. connect route to server using `app.use()` method of `express`
+   * make route in `routes` directory `auth.routes.js`
+   * make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
+   * handle `POST` requests on both endpoints
+   * make `User` model for DB in `models` directory `User.js`
+   * create query logic in endpoints using `mongoose` methods
+   * use `bcryptjs` to secure user passwords 
+   * use `express-validator` to validate user data
+   * use `jsonwebtoken` for user authorisation
+   * connect route to server using `app.use()` method of `express`
 2. #### *INTERFACE*
-   1. make `client` directory with `npx create-react-app`
-   2. add a `client` script to `package.json` to launch frontend
-   3. use `concurrently` library to run frontend and backend at the same time using `dev` script
-   4. use `materialize` css for easier styling
-       1. install `materialize` to `client` directory
-       2. import `materialize` in jsx components
-       3. import `materialize` in css files
-   5. to create multiple pages use the `react-router-dom` library
-       1. create new pages as React components in a `pages` directory
-       2. handle routes in `routes.js` from `client` directory
-       3. output pages from `routes.js` to `App.js` depending on authorisation
-   6. create an `AuthPage.jsx` component for SignUp and SignIn using `materialize` and react controlled input
+   * make `client` directory with `npx create-react-app`
+   * add a `client` script to `package.json` to launch frontend
+   * use `concurrently` library to run frontend and backend at the same time using `dev` script
+   * use `materialize` css for easier styling
+       - install `materialize` to `client` directory
+       - import `materialize` in jsx components
+       - import `materialize` in css files
+   * to create multiple pages use the `react-router-dom` library
+       - create new pages as React components in a `pages` directory
+       - handle routes in `routes.js` from `client` directory
+       - output pages from `routes.js` to `App.js` depending on authorisation
+   * create an `AuthPage.jsx` component for SignUp and SignIn using `materialize` and react controlled input
 3. #### *CONNECTION*
-   1. use the `fetch` method in the custom `useHTTP()` hook in `hooks` directory to interact with the server
-   2. call `request` method from `useHTTP()` in `AuthPage.jsx` to send user data to endpoints
-   3. add a `proxy` parameter to the `package.json` of the `client` directory to direct requests from the frontend to the backend
-   4. handle errors from the server using `useEffect()` in `AuthPage.jsx`
+   * use the `fetch` method in the custom `useHTTP()` hook in `hooks` directory to interact with the server
+   * call `request` method from `useHTTP()` in `AuthPage.jsx` to send user data to endpoints
+   * add a `proxy` parameter to the `package.json` of the `client` directory to direct requests from the frontend to the backend
+   * handle errors from the server using `useEffect()` in `AuthPage.jsx`
 4. #### *USE*
-   1. use the `toast()` method from `materialize` in the custom hook `useMessage()` in the `hooks` directory to display an error message
-   2. make logic for SignUp in the `registerHandler()` method and for SignIn in the `loginHandler()` method from `AuthPage.jsx`
-   3. handle authorisation in the custom `useAuth()` hook in `hook` directory
+   * use the `toast()` method from `materialize` in the custom hook `useMessage()` in the `hooks` directory to display an error message
+   * make logic for SignUp in the `registerHandler()` method and for SignIn in the `loginHandler()` method from `AuthPage.jsx`
+   * handle authorisation in the custom `useAuth()` hook in `hook` directory
+   * use `@redux/toolkit` and `react-redux` to create a dataflow in this application
+## Come up with nice titles for your links
