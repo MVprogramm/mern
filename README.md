@@ -1,9 +1,9 @@
 # "NICE LINKS"
 ## THE FULLSTACK APPLICATION with **MERN** TECHNOLOGY
 ----
-1. ### Authorisation
-2. ### Come up with a nice name for your links
-3. ### Get important analytics on them
+### **Authorisation**
+### **Come up with a nice name for your links**
+### **Get important analytics on them**
 
 
 ## Project initialization
@@ -28,6 +28,7 @@
 
 ## Authorisation. SignUp and SignIn.
 1. #### *ENDPOINTS*
+<<<<<<< HEAD
    * make route in `routes` directory `auth.routes.js`
    * make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
    * handle `POST` requests on both endpoints
@@ -37,6 +38,17 @@
    * use `express-validator` to validate user data
    * use `jsonwebtoken` for user authorisation
    * connect route to server using `app.use()` method of `express`
+=======
+   - make route in `routes` directory `auth.routes.js`
+   2. make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
+   3. handle `POST` requests on both endpoints
+   4. make `User` model for DB in `models` directory `User.js`
+   5. create query logic in endpoints using `mongoose` methods
+   6. use `bcryptjs` to secure user passwords 
+   7. use `express-validator` to validate user data
+   8. use `jsonwebtoken` for user authorisation
+   9. connect route to server using `app.use()` method of `express`
+>>>>>>> 627c4ebcc9c519ba5436c896ac96244a3d565875
 2. #### *INTERFACE*
    * make `client` directory with `npx create-react-app`
    * add a `client` script to `package.json` to launch frontend
@@ -56,8 +68,14 @@
    * add a `proxy` parameter to the `package.json` of the `client` directory to direct requests from the frontend to the backend
    * handle errors from the server using `useEffect()` in `AuthPage.jsx`
 4. #### *USE*
+<<<<<<< HEAD
    * use the `toast()` method from `materialize` in the custom hook `useMessage()` in the `hooks` directory to display an error message
    * make logic for SignUp in the `registerHandler()` method and for SignIn in the `loginHandler()` method from `AuthPage.jsx`
    * handle authorisation in the custom `useAuth()` hook in `hook` directory
    * use `@redux/toolkit` and `react-redux` to create a dataflow in this application
 ## Come up with nice titles for your links
+=======
+   1. use the `toast()` method from `materialize` in the custom hook `useMessage()` in the `hooks` directory to display an error message
+   2. make logic for SignUp in the `registerHandler()` method and for SignIn in the `loginHandler()` method from `AuthPage.jsx`
+   3. handle authorisation in the custom `useAuth()` hook in `hook` directory
+>>>>>>> 627c4ebcc9c519ba5436c896ac96244a3d565875
