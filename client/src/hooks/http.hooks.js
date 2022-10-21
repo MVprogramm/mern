@@ -1,6 +1,9 @@
 import { useState, useCallback } from 'react'
+import { useRegistrationMutation } from '../store/app.api'
 
 export const useHTTP = () => {
+    const { isLoading, isError, data } = useRegistrationMutation()
+    console.log(isLoading, isError, data)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
     const request = useCallback( async (url, method='GET', body=null, headers={}) => {
