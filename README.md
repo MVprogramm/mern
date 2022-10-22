@@ -59,5 +59,5 @@
    * make logic for SignUp in the `registerHandler()` method and for SignIn in the `loginHandler()` method from `AuthPage.jsx`
    * handle authorisation in the custom `useAuth()` hook in `hook` directory
    * use `@redux/toolkit` and `react-redux` to create a dataflow in this application
-   
+   Xy!-vKFyur7H3nn
 
