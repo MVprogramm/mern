@@ -19,16 +19,16 @@
 ### *WORKFLOW*
 ----
 
-1. *Make a backend endpoint*
+1. *Make a backend endpoints*
 2. *Make a frontend interface*
-3. *Connect interface and endpoint*
-4. *Use server data*
+3. *Connect interface and endpoints*
+4. *Use server data on the frontend side*
 ----
 
-## Authorisation. SignUp and SignIn.
+## Authorisation. SignUp and LogIn.
 1. #### *ENDPOINTS*
    * make route in `routes` directory `auth.routes.js`
-   * make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **SignIn** in this route
+   * make `/api/auth` endpoints `/register` for **SignUp** and `/login` for **LogIn** in this route
    * handle `POST` requests on both endpoints
    * make `User` model for DB in `models` directory `User.js`
    * create query logic in endpoints using `mongoose` methods
@@ -48,7 +48,7 @@
        - create new pages as React components in a `pages` directory
        - handle routes in `routes.js` from `client` directory
        - output pages from `routes.js` to `App.js` depending on authorisation
-   * create an `AuthPage.jsx` component for SignUp and SignIn using `materialize` and react controlled input
+   * create an `AuthPage.jsx` component for SignUp and LogIn using `materialize` and react controlled input
 3. #### *CONNECTION*
    * use the `fetch` method in the custom `useHTTP()` hook in `hooks` directory to interact with the server
    * call `request` method from `useHTTP()` in `AuthPage.jsx` to send user data to endpoints

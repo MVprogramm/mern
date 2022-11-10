@@ -12,10 +12,14 @@ export const userSlice = createSlice({
     reducers: {
         setCurrentUser: (state, action) => {
             state.currentUser = action.payload
-            localStorage("userId", action.payload)
+            localStorage.setItem("userId", action.payload)
+        },
+        logoutUser: (state) => {
+            localStorage.removeItem("userId")
+            state.currentUser = null
         }
     }
 })
 
-export const { setCurrentUser } = userSlice.actions
+export const { setCurrentUser, logoutUser } = userSlice.actions
 export default userSlice.reducer

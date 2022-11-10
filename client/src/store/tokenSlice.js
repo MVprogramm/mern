@@ -13,9 +13,13 @@ export const tokenSlice = createSlice({
         setCurrentToken: (state, action) => {
             state.currentToken = action.payload
             localStorage.setItem("token", action.payload)
+        },
+        logoutToken: (state) => {
+            localStorage.removeItem("token")
+            state.currentToken = null
         }
     }
 })
 
-export const { setCurrentToken } = tokenSlice.actions
+export const { setCurrentToken, logoutToken } = tokenSlice.actions
 export default tokenSlice.reducer

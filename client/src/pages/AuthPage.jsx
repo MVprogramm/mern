@@ -1,46 +1,73 @@
 import React, { useEffect, useState } from "react";
-import { useHTTP } from "../hooks/http.hooks";
 import { useMessage } from "../hooks/message.hook";
 import { useDispatch } from "react-redux";
+import { useLoginMutation } from '../store/app.api';
+import { useRegistrationMutation } from "../store/app.api";
 import { setCurrentToken } from "../store/tokenSlice";
+import { setCurrentUser } from "../store/userSlice";
 
 const AuthPage = () => {
   const dispatch = useDispatch()
-  const { loading, request, error, clearError } = useHTTP()
   const message = useMessage()
   const [form, setForm] = useState({
     email: "",
     password: ""
   })
-
+  const [ 
+    login, 
+    {
+      data: loginData, 
+      error: loginError, 
+      isLoading: loginLoading
+    } 
+  ] = useLoginMutation();
+  const [ 
+    register, 
+    {
+      data: registerData, 
+      error: registerError, 
+      isLoading: registerLoading
+    } 
+  ] = useRegistrationMutation()
+  
   useEffect(() => {
-    message(error)
-    clearError()
-  }, [error, message, clearError])
+    if (loginError) {
+      message(loginError.data.message)
+      const errors = loginError.data.errors
+        ? loginError.data.errors
+        : []
+      errors.map((error) => message(error.msg))
+    }
+    if (registerError) {
+      message(registerError.data.message)
+      const errors = registerError.data.errors
+        ? registerError.data.errors
+        : []
+      errors.map((error) => message(error.msg))
+    }  
+    if (loginData) {
+      dispatch(setCurrentToken(loginData.token))
+      dispatch(setCurrentUser(loginData.userId))
+    }
+    if (registerData) message(registerData.message)
+  }, [loginData, registerData, loginError, registerError])
 
   const inputHandler = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value })
   }
 
-  const registerHandler = async () => {
-    try {
-      const data = await request('/api/auth/register', 'POST', {...form})
-      message(data.message)
-    } catch(err) {}
+  const registerHandler = () => {
+    register({...form})
   }
 
-  const loginHandler = async () => {
-    try {
-      const data = await request('/api/auth/login', 'POST', {...form})
-      message(data.message)
-      dispatch(setCurrentToken(data.token))
-    } catch(err) {}
+  const loginHandler = () => {
+    login({...form})
   }
 
   return (
     <div className="row">
       <div className="col s7 offset-s2">
-        <h1>NICE LINKS</h1>
+        <h2 style={{textAlign: "center"}}>MY SHORT LINKS</h2>
         <div className="card blue darken-1">
           <div className="card-content white-text">
             <span className="card-title">AUTHORISATION</span>
@@ -71,14 +98,14 @@ const AuthPage = () => {
               <button
                 className="btn btn_auth yellow darken-4"
                 onClick={loginHandler}
-                disabled={loading}
+                disabled={loginLoading}
               >
                 Sign in
               </button>
               <button 
                 className="btn btn_auth grey lighten-1 black-text"
                 onClick={registerHandler}
-                disabled={loading}
+                disabled={registerLoading}
               >
                 Sign up
               </button>

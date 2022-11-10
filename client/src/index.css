@@ -10,3 +10,11 @@ input#email, input#password {
 .input-field>label.inp_auth {
     color: #ffffff;
 }
+.inp_auth.active {
+    color: #fff !important;
+}
+
+.input-field>label.inp_link {
+    color: blue darken-1;
+}
+

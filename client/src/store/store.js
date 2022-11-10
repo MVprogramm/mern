@@ -9,7 +9,8 @@ export const store = configureStore({
         token: tokenReudcer,
         userId: userReducer,
     },
+    middleware: getDefaultMiddleware => getDefaultMiddleware().concat(appApi.middleware),
     devTools: process.env.NODE_ENV !== 'production',
 })
 
-export default store
+
